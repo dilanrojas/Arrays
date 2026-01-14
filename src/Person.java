@@ -49,4 +49,12 @@ class Person {
   public void setPets(int numbersOfPets) {
     this.pets = new Pet[numbersOfPets];
   }
+
+  public int getPetCount() {
+    return this.petManager.getPetCount();
+  }
+
+  public String getPetList() {
+    return this.petManager.getPetList();
+  }
 }

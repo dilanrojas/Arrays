@@ -1,30 +1,35 @@
 class Pet {
-  private String petName;
+  private String name;
   private String type;
 
   public Pet() {
-    this.petName = null;
+    this.name = null;
     this.type = null;
   }
 
-  public Pet(String petName, String type) {
-    this.petName = petName;
+  public Pet(String name, String type) {
+    this.name = name;
     this.type = type;
   }
 
   public String getPetName() {
-    return this.petName;
+    return this.name;
   }
 
   public String getType() {
     return this.type;
   }
 
-  public void setPetName(String petName) {
-    this.petName = petName;
+  public void setPetName(String name) {
+    this.name = name;
   }
 
   public void setType(String type) {
     this.type = type;
+  }
+
+  @Override
+  public String toString() {
+    return "Name: " + name + "\nType: " + type;
   }
 }

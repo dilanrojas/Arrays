@@ -8,7 +8,7 @@ class PetManager {
   }
 
   public PetManager(int numberOfPets) {
-    this.petCount = numberOfPets;
+    this.petCount = 0;
     this.petList = new Pet[numberOfPets];
   }
 
@@ -22,5 +22,16 @@ class PetManager {
 
   public int getPetCount() {
     return petCount;
+  }
+
+  public String getPetList() {
+    String list = "=== Pets list ===\n";
+
+    for (Pet p : petList) {
+      if (p != null)
+        list += p.toString() + "\n\n";
+    }
+
+    return list;
   }
 }
