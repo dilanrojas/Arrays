@@ -50,12 +50,21 @@ class PetManager {
     return petCount;
   }
 
+  public Pet[] getPets() {
+    Pet[] pets = new Pet[this.petCount];
+
+    for (int i = 0; i < this.petCount; i++) {
+      pets[i] = this.petList[i];
+    }
+
+    return pets;
+  }
+
   public String getPetList() {
     String list = "=== Pets list ===\n";
 
-    for (Pet p : petList) {
-      if (p != null)
-        list += p.toString() + "\n\n";
+    for (Pet p : getPets()) {
+      list += p.toString() + "\n\n";
     }
 
     return list;
