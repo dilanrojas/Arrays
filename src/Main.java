@@ -4,8 +4,9 @@ class Main {
 
     Pet dog = new Pet("Venom", "Dog");
     Pet cat = new Pet("Mini", "Cat");
+    Pet fish = new Pet("Nemo", "Fish");
 
-    Pet[] pets = { dog, cat };
+    Pet[] pets = { dog, cat, fish };
 
     // Test 1: Add pets
     for (Pet p : pets) {
@@ -18,7 +19,7 @@ class Main {
     System.out.println("");
 
     // Test 2: Print pet list using toString
-    IOManager.printMessage(person.getPetList());
+    IOManager.printMessage(person.getList());
 
     // Test 3: Remove a pet using its index and print the list again
     if (person.removePet(1)) {
@@ -28,7 +29,7 @@ class Main {
     }
     System.out.println("");
 
-    IOManager.printMessage(person.getPetList());
+    IOManager.printMessage(person.getList());
 
     // Test 4: Update the pet (Check if its position is right)
     if (person.updatePets(dog, 0)) {

@@ -1,66 +1,68 @@
 class PetManager {
-  private int petCount;
-  private Pet[] petList;
+  private int size;
+  private Pet[] list;
 
   public PetManager() {
-    this.petCount = 0;
-    this.petList = null;
+    this.size = 0;
+    this.list = null;
   }
 
   public PetManager(int numberOfPets) {
-    this.petCount = 0;
-    this.petList = new Pet[numberOfPets];
+    this.size = 0;
+    this.list = new Pet[numberOfPets];
   }
 
   public boolean addPet(Pet pet) {
     if (pet == null)
       return false;
 
-    if (petCount >= petList.length)
-      return false;
+    if (size >= list.length) {
+      System.out.println("Pet array limit reached. Making it bigger...");
+      list = growList();
+    }
 
-    petList[petCount] = pet;
-    petCount++;
+    list[size] = pet;
+    size++;
     return true;
   }
 
   public boolean removePet(int index) {
-    if (index < 0 || index >= petCount)
+    if (index < 0 || index >= size)
       return false;
 
-    petList[index] = null;
+    list[index] = null;
     leftShifting(index);
 
     return true;
   }
 
   public void leftShifting(int index) {
-    if (index < 0 || index >= petCount)
+    if (index < 0 || index >= size)
       return;
 
-    for (int i = index; i < petCount - 1; i++) {
-      petList[i] = petList[i + 1];
+    for (int i = index; i < size - 1; i++) {
+      list[i] = list[i + 1];
     }
 
-    petCount--;
-    petList[petCount] = null;
+    size--;
+    list[size] = null;
   }
 
-  public int getPetCount() {
-    return petCount;
+  public int getSize() {
+    return size;
   }
 
   public Pet[] getPets() {
-    Pet[] pets = new Pet[this.petCount];
+    Pet[] pets = new Pet[this.size];
 
-    for (int i = 0; i < this.petCount; i++) {
-      pets[i] = this.petList[i];
+    for (int i = 0; i < this.size; i++) {
+      pets[i] = this.list[i];
     }
 
     return pets;
   }
 
-  public String getPetList() {
+  public String getList() {
     String list = "=== Pets list ===\n";
 
     for (Pet p : getPets()) {
@@ -74,12 +76,22 @@ class PetManager {
     if (pet == null)
       return false;
 
-    if (index < 0 || index >= petCount)
+    if (index < 0 || index >= size)
       return false;
 
-    if (petList[index] == pet)
+    if (list[index] == pet)
       return true;
 
     return false;
+  }
+
+  public Pet[] growList() {
+    Pet[] newArray = new Pet[list.length + 5];
+
+    for (int i = 0; i < list.length; i++) {
+      newArray[i] = list[i];
+    }
+
+    return newArray;
   }
 }

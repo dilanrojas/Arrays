@@ -42,12 +42,12 @@ class Person {
     this.age = age;
   }
 
-  public int getPetCount() {
-    return this.petManager.getPetCount();
+  public int getSize() {
+    return this.petManager.getSize();
   }
 
-  public String getPetList() {
-    return this.petManager.getPetList();
+  public String getList() {
+    return this.petManager.getList();
   }
 
   public boolean updatePets(Pet pet, int index) {
