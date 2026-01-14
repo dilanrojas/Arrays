@@ -16,7 +16,11 @@ class PetManager {
     if (pet == null)
       return false;
 
-    petList[petCount++] = pet;
+    if (petCount >= petList.length)
+      return false;
+
+    petList[petCount] = pet;
+    petCount++;
     return true;
   }
 
